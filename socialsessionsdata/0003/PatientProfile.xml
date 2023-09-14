@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<PatientProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <user>
+    <id>0003</id>
+    <age>65</age>
+    <gender>Male</gender>
+    <weight>110</weight>
+    <height>183</height>
+    <group>none</group>
+  </user>
+  <training>
+    <num_sessions_expected>0</num_sessions_expected>
+    <trainingHRvalues>
+      <float>110</float>
+    </trainingHRvalues>
+    <trainingHRperc>
+      <float>20</float>
+    </trainingHRperc>
+    <model>b</model>
+    <num_sessions_done>21</num_sessions_done>
+  </training>
+</PatientProfile>

@@ -1,0 +1,39 @@
+import pandas as pd
+from datetime import timedelta
+import os
+
+# Set the root directory where the subfolders and CSV files are located
+root_dir = "C:/Users/mandalapu/PycharmProjects/socialsessions/socialsessionsdata/0002"
+
+# Iterate through all subfolders and files in the root directory
+for root, dirs, files in os.walk(root_dir):
+    for file in files:
+        # Check if the file is a CSV file and has the name "HR" or "WL"
+        if file.endswith(".csv") and ("HR" in file or "WL" in file):
+            file_path = os.path.join(root, file)
+            output_file = os.path.join(root, "modified_" + file)
+
+            # Read the CSV file
+            data = pd.read_csv(file_path, header=None)
+
+            # Split the data column into separate columns
+            data = data[0].str.split(' |;', expand=True)
+
+            # Add column names based on file type
+            if "HR" in file:
+                data.columns = ['Date', 'Time', 'HeartRate']
+            elif "WL" in file:
+                data.columns = ['Date', 'Time', 'WL']
+
+            # Convert data types
+            data['Date'] = pd.to_datetime(data['Date'], format='%Y-%m-%d')
+            data['Time'] = pd.to_timedelta(data['Time']).dt.total_seconds().div(60).round(2)
+
+            # Adjust the time values to start from 00:00:00
+            start_time = data['Time'].min()
+            data['Time'] = data['Time'] - start_time
+
+            # Save the separated data into a new CSV file
+            data.to_csv(output_file, index=False)
+
+            print(f"Modified file saved: {output_file}")

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<SessionData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>9</id>
+  <date>2022-12-09T08:10:25.0139698+01:00</date>
+  <intensitySequence>
+    <int>30</int>
+    <int>40</int>
+    <int>50</int>
+    <int>60</int>
+    <int>70</int>
+    <int>80</int>
+    <int>90</int>
+  </intensitySequence>
+  <duration>20.443325</duration>
+  <completionTime>0</completionTime>
+  <dyspnea>
+    <int>0</int>
+    <int>1</int>
+  </dyspnea>
+  <fatigue>
+    <int>0</int>
+    <int>3</int>
+  </fatigue>
+  <hr_rest>80.425</hr_rest>
+</SessionData>
